@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
   imports: [CommonModule, RouterModule],
   templateUrl: '././movie-card.html',
   styleUrls: ['./movie-card.css'],
+
 })
 export class MovieCardComponent implements OnInit {
   @Input() movie: any;
