@@ -10,7 +10,8 @@
       <div
         class="rating-circle bg-dark text-white d-flex align-items-center justify-content-center"
       >
-        {{ (movie.vote_average * 10) | number: '1.0-0' }}
+        {{ movie.vote_average * 10 | number : '1.0-0' }}
+
       </div>
     </div>
   </a>
@@ -21,9 +22,7 @@
       <a [routerLink]="['/movie', movie.id]" class="text-decoration-none text-dark">
         <h6 class="card-title mb-0">{{ movie.title }}</h6>
       </a>
-      <p class="card-date mb-0">
-        {{ movie.release_date | date: 'MMM dd, yyyy' }}
-      </p>
+      <p class="card-date mb-0">{{ movie.release_date | date : 'MMM dd, yyyy' }}</p>
     </div>
 
     <!-- Icons -->
