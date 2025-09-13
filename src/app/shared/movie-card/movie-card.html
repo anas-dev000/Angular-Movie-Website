@@ -1,0 +1,36 @@
+<div class="movie-card">
+  <!-- Poster -->
+  <a [routerLink]="['/movie', movie.id]">
+    <div class="poster-wrapper position-relative">
+      <img
+        [src]="movie.poster_path ? imgBaseUrl + movie.poster_path : defaultImage"
+        class="img-fluid rounded shadow"
+        alt="{{ movie.title }}"
+      />
+      <div
+        class="rating-circle bg-dark text-white d-flex align-items-center justify-content-center"
+      >
+        {{ movie.vote_average * 10 | number : '1.0-0' }}
+      </div>
+    </div>
+  </a>
+
+  <!-- Title + Icons -->
+  <div class="d-flex align-items-center justify-content-between mt-3">
+    <div>
+      <a [routerLink]="['/movie', movie.id]" class="text-decoration-none text-dark">
+        <h6 class="card-title mb-0">{{ movie.title }}</h6>
+      </a>
+      <p class="card-date mb-0">{{ movie.release_date | date : 'MMM dd, yyyy' }}</p>
+    </div>
+
+    <!-- Icons -->
+    <div class="icon-wrapper d-flex flex-column gap-1">
+      <i
+        class="bi"
+        [ngClass]="isInWishlist ? 'bi-heart-fill text-danger fs-6' : 'bi-heart text-dark fs-6'"
+        (click)="toggleWishlist($event)"
+      ></i>
+    </div>
+  </div>
+</div>

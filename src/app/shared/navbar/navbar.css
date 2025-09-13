@@ -1,0 +1,40 @@
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.search-form {
+  width: 250px;
+}
+.search-form input {
+  font-size: 0.9rem;
+  border-radius: 20px;
+}
+.search-form button {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+}
+.language-select {
+  width: 100px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+.theme-btn,
+.wishlist-btn {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+.auth-buttons .btn {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+.wishlist-btn .bi-heart {
+  font-size: 1.2rem;
+}
+.badge {
+  font-size: 0.7rem;
+}
