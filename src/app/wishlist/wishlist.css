@@ -1,0 +1,11 @@
+.container {
+  padding-bottom: 60px; 
+}
+
+.text-center {
+  margin-top: 50px;
+}
+
+button.btn-warning {
+  font-weight: bold;
+}
