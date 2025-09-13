@@ -1,0 +1,44 @@
+.card-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.card-date {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.movie-card {
+  min-width: 160px;
+  flex: 0 0 auto;
+}
+
+.poster-wrapper {
+  position: relative;
+}
+
+.rating-circle {
+  position: absolute;
+  bottom: -12px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #28a745;
+}
+
+.icon-wrapper {
+  z-index: 10;
+}
+
+.icon-wrapper i {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.icon-wrapper i:hover {
+  transform: scale(1.2);
+  color: #ffc107;
+}
