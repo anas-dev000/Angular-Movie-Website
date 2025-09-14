@@ -85,7 +85,6 @@ export class MovieDetailsComponent implements OnInit {
   toggleWishlist() {
     this.wishlistService.toggleWishlist(this.movie);
     this.isInWishlist = !this.isInWishlist;
-    alert(this.isInWishlist ? 'Added to Wishlist' : 'Removed from Wishlist');
   }
 
   scrollToTop() {
