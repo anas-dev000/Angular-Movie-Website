@@ -1,52 +1,65 @@
-<nav class="navbar navbar-light bg-warning py-2">
-  <div class="container-fluid align-items-center">
-    <a class="navbar-brand fw-bold fs-4" routerLink="/movies">Movie App</a>
-    <div class="d-flex align-items-center gap-2">
-      <form class="d-flex search-form" (submit)="search($event)">
-        <input
-          class="form-control"
-          type="search"
-          placeholder="Search movies..."
-          [(ngModel)]="searchQuery"
-          name="searchQuery"
-        />
-        <button class="btn btn-dark ms-2" type="submit">
-          <i class="bi bi-search"></i>
-        </button>
-      </form>
-      <select
-        class="form-select language-select"
-        [(ngModel)]="selectedLanguage"
-        (change)="changeLanguage()"
-      >
-        @for (lang of languages; track lang) {
-        <option [value]="lang">{{ lang | uppercase }}</option>
-        }
-      </select>
-      <button class="btn btn-outline-dark theme-btn" (click)="toggleTheme()">
-        <i class="bi" [ngClass]="currentTheme === 'light' ? 'bi-moon' : 'bi-sun'"></i>
-      </button>
-      <a routerLink="/wishlist" class="btn btn-outline-dark position-relative wishlist-btn">
-        <i class="bi bi-heart"></i>
-        @if (wishlistCount > 0) {
-        <span
-          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+    <nav class="navbar navbar-light bg-warning py-2 navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-4" routerLink="/movies">Movie App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          {{ wishlistCount }}
-        </span>
-        }
-      </a>
-      @if (!isLoggedIn) {
-      <div class="auth-buttons d-flex gap-2">
-        <a routerLink="/login" class="btn btn-outline-dark">Login</a>
-        <a routerLink="/register" class="btn btn-dark">Register</a>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <div class="d-flex align-items-center gap-2 ms-auto flex-wrap">
+            <form class="d-flex search-form" (submit)="search($event)">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search movies..."
+                [(ngModel)]="searchQuery"
+                name="searchQuery"
+              />
+              <button class="btn btn-dark ms-2" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </form>
+            <select
+              class="form-select language-select"
+              [(ngModel)]="selectedLanguage"
+              (change)="changeLanguage()"
+            >
+              @for (lang of languages; track lang) {
+              <option [value]="lang">{{ lang | uppercase }}</option>
+              }
+            </select>
+            <button class="btn btn-outline-dark theme-btn" (click)="toggleTheme()">
+              <i class="bi" [ngClass]="currentTheme === 'light' ? 'bi-moon' : 'bi-sun'"></i>
+            </button>
+            <a routerLink="/wishlist" class="btn btn-outline-dark position-relative wishlist-btn">
+              <i class="bi bi-heart"></i>
+              @if (wishlistCount > 0) {
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              >
+                {{ wishlistCount }}
+              </span>
+              }
+            </a>
+            @if (!isLoggedIn) {
+            <div class="auth-buttons d-flex gap-2">
+              <a routerLink="/login" class="btn btn-outline-dark">Login</a>
+              <a routerLink="/register" class="btn btn-dark">Register</a>
+            </div>
+            } @else {
+            <div class="auth-buttons d-flex gap-2">
+              <a routerLink="/account" class="btn btn-outline-dark">Account</a>
+              <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+            </div>
+            }
+          </div>
+        </div>
       </div>
-      } @else {
-      <div class="auth-buttons d-flex gap-2">
-        <a routerLink="/account" class="btn btn-outline-dark">Account</a>
-        <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
-      </div>
-      }
-    </div>
-  </div>
-</nav>
+    </nav>
