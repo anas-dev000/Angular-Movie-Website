@@ -1,17 +1,64 @@
-img {
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
 
-h1 {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-iframe {
-  border-radius: 8px;
-}
-
-button {
-  min-width: 150px;
-}
+      .col-lg-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+      }
+      .img-fluid {
+        border-radius: 10px;
+        max-height: 400px;
+        object-fit: cover;
+      }
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      iframe {
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+      }
+      .recommendations-container {
+        margin-bottom: 4rem;
+      }
+      .back-to-top {
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        border-radius: 50%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+      }
+      @media (max-width: 767px) {
+        h1 {
+          font-size: 1.5rem;
+        }
+        .col-md-4, .col-md-8 {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-bottom: 1rem;
+        }
+        .col-lg-2-4, .col-md-4, .col-sm-6, .col-12 {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-bottom: 1rem;
+        }
+        iframe {
+          max-width: 100%;
+        }
+        .recommendations-container {
+          margin-bottom: 5rem;
+        }
+        .back-to-top {
+          bottom: 1rem;
+          right: 1rem;
+          padding: 0.5rem;
+          font-size: 0.8rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+      }
