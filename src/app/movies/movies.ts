@@ -14,11 +14,11 @@ import { NavbarComponent } from '../shared/navbar/navbar';
   template: `
     <app-navbar></app-navbar>
     <div class="container mt-4">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="fw-bold text-warning">Now Playing</h2>
-        <div class="dropdown">
+      <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-3">
+        <h2 class="fw-bold text-warning mb-0">Now Playing</h2>
+        <div class="dropdown w-100">
           <button
-            class="btn btn-warning dropdown-toggle"
+            class="btn btn-warning dropdown-toggle w-100"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -39,16 +39,16 @@ import { NavbarComponent } from '../shared/navbar/navbar';
             </li>
           </ul>
         </div>
-        <div class="dropdown mb-3">
+        <div class="dropdown mb-3 w-100">
           <button
-            class="btn btn-warning dropdown-toggle"
+            class="btn btn-warning dropdown-toggle w-100"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             {{ selectedGenres.length ? getSelectedGenreNames() : 'Genres' }}
           </button>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu genre-dropdown">
             @for (genre of genres; track genre.id) {
             <li>
               <a
@@ -63,7 +63,6 @@ import { NavbarComponent } from '../shared/navbar/navbar';
           </ul>
         </div>
       </div>
-
       @if (loading) {
       <div class="text-center">
         <div class="spinner-border text-warning" role="status">
@@ -73,18 +72,17 @@ import { NavbarComponent } from '../shared/navbar/navbar';
       } @else {
       <div class="row g-3 m-3">
         @for (movie of movies; track movie.id) {
-        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
           <app-movie-card [movie]="movie"></app-movie-card>
         </div>
-        } @empty { @for (i of [1, 2, 3, 4]; track i) {
-        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+        } @empty { @for (i of [1, 2, 3, 4, 5]; track i) {
+        <div class="col-lg-2-4 col-md-4 col-sm-6 col-12">
           <div class="skeleton"></div>
         </div>
         } }
       </div>
       }
-
-      <nav aria-label="Page navigation">
+      <nav aria-label="Page navigation" class="pagination-container">
         <ul class="pagination justify-content-center">
           <li class="page-item" [class.disabled]="page === 1">
             <a class="page-link btn" (click)="changePage(page - 1)">Previous</a>
@@ -94,8 +92,7 @@ import { NavbarComponent } from '../shared/navbar/navbar';
           </li>
         </ul>
       </nav>
-
-      <button class="btn btn-warning position-fixed bottom-0 end-0 m-3" (click)="scrollToTop()">
+      <button class="btn btn-warning position-fixed back-to-top m-3" (click)="scrollToTop()">
         Back to Top
       </button>
     </div>
@@ -105,6 +102,11 @@ import { NavbarComponent } from '../shared/navbar/navbar';
       h2 {
         font-size: 1.8rem;
         margin-bottom: 0;
+        text-align: center;
+      }
+      .dropdown {
+        width: 100%;
+        max-width: 200px;
       }
       .dropdown-toggle {
         font-size: 0.9rem;
@@ -127,9 +129,68 @@ import { NavbarComponent } from '../shared/navbar/navbar';
       }
       .skeleton {
         width: 100%;
-        height: 250px;
-        background: #e0e0e0;
+        height: 300px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
         border-radius: 10px;
+      }
+      @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      .pagination-container {
+        margin-bottom: 3rem;
+      }
+      .back-to-top {
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        border-radius: 50%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+      }
+      @media (max-width: 767px) {
+        h2 {
+          font-size: 1.5rem;
+          width: 100%;
+        }
+        .dropdown {
+          max-width: 100%;
+        }
+        .dropdown-toggle {
+          font-size: 0.8rem;
+          padding: 0.4rem 0.8rem;
+        }
+        .col-lg-2-4, .col-md-4, .col-sm-6, .col-12 {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-bottom: 1rem;
+        }
+        .pagination {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          justify-content: space-between;
+        }
+        .page-item {
+          flex: 0 0 48%;
+          text-align: center;
+        }
+        .page-link {
+          font-size: 0.8rem;
+          padding: 0.4rem 0.8rem;
+          border-radius: 8px;
+        }
+        .pagination-container {
+          margin-bottom: 4.5rem;
+        }
+        .back-to-top {
+          bottom: 1rem;
+          right: 1rem;
+          padding: 0.5rem;
+          font-size: 0.8rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
       }
     `,
   ],
