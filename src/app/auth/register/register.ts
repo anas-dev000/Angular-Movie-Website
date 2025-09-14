@@ -8,8 +8,8 @@ import { BackButtonComponent } from '../../shared/back-button/back-button';
 @Component({
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule, BackButtonComponent],
-  template: './register.html',
-  styles: ['./register.css'],
+  templateUrl: './register.html',
+  styleUrls: ['./register.css'],
 })
 export class RegisterComponent {
   email = '';

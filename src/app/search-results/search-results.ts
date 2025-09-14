@@ -4,15 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { MovieService } from '../services/movie';
 import { LanguageService } from '../services/language';
-import { MovieCardComponent } from '../movie-card/movie-card';
+import { MovieCardComponent } from '../shared/movie-card/movie-card';
 import { NavbarComponent } from '../shared/navbar/navbar';
 
 @Component({
-  selector: 'app-search-results',       
+  selector: 'app-search-results',
   standalone: true,
   imports: [CommonModule, MovieCardComponent, NavbarComponent],
   templateUrl: './search-results.html',
-  styleUrls: ['./search-results.css']   
+  styleUrls: ['./search-results.css']
 })
 export class SearchResultsComponent implements OnInit {
   movies: any[] = [];
