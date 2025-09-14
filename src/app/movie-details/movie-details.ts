@@ -37,21 +37,30 @@ export class MovieDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id')!;
     this.languageService.getCurrentLanguage().subscribe((lang) => {
       this.language = lang;
+      this.subscribeToRouteChanges();
+    });
+  }
+
+  subscribeToRouteChanges() {
+    this.route.params.subscribe((params) => {
+      const id = +params['id'];
+      this.loading = true;
+      this.recLoading = true;
+      this.trailerUrl = null;
+      this.isInWishlist = this.wishlistService.isInWishlist(id);
       this.loadDetails(id);
       this.loadRecommendations(id);
       this.loadTrailer(id);
     });
-    this.isInWishlist = this.wishlistService.isInWishlist(id);
   }
 
   loadDetails(id: number) {
     this.movieService.getMovieDetails(id, this.language).subscribe((data) => {
       this.movie = data;
       this.loading = false;
-      this.title.setTitle(`Movie App - ${this.movie.title}`);
+      this.title.setTitle(`Movie App - ${this.movie?.title || 'Details'}`);
     });
   }
 
