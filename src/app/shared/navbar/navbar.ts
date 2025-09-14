@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
+
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css'],

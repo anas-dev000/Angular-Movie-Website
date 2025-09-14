@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-movie-details',
-  standalone: true,
+
   imports: [CommonModule, NavbarComponent, MovieCardComponent],
   templateUrl: './movie-details.html',
   styleUrls: ['./movie-details.css'],

@@ -8,10 +8,10 @@ import { NavbarComponent } from '../shared/navbar/navbar';
 
 @Component({
   selector: 'app-wishlist',
-  standalone: true,
+
   imports: [CommonModule, RouterModule, MovieCardComponent, NavbarComponent],
   templateUrl: './wishlist.html',
-  styleUrls: ['./wishlist.css']
+  styleUrls: ['./wishlist.css'],
 })
 export class WishlistComponent implements OnInit {
   wishlist: any[] = [];

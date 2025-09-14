@@ -9,7 +9,6 @@ import { MovieCardComponent } from '../shared/movie-card/movie-card';
 import { NavbarComponent } from '../shared/navbar/navbar';
 
 @Component({
-  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule, MovieCardComponent, NavbarComponent],
   templateUrl: './movies.html',
   styleUrls: ['./movies.css'],

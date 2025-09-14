@@ -6,7 +6,6 @@ import { AuthService } from '../../services/auth';
 import { BackButtonComponent } from '../../shared/back-button/back-button';
 
 @Component({
-  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule, BackButtonComponent],
   templateUrl: './register.html',
   styleUrls: ['./register.css'],
